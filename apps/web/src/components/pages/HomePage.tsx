@@ -8,7 +8,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import React from 'react';
 import { Home0List } from '@/components/domains/home/Home0List';
-import { Home1Schedule } from '@/components/domains/home/Home1Shcedule';
+import { Home1Schedule } from '@/components/domains/home/Home1Schedule';
 import { Home2Profile } from '@/components/domains/home/Home2Profile';
 
 export const HomePage = () => {

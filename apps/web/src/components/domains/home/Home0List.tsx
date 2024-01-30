@@ -1,29 +1,106 @@
-import { Box, Chip, Stack, Typography } from '@mui/material';
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
+import {
+  Box,
+  Button,
+  Chip,
+  Paper,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const tasks = [
-  { id: 1, title: '週3回筋トレ', tag: '本日中' },
-  { id: 2, title: '週3回筋トレ', tag: '本日中' },
-  { id: 3, title: '週3回筋トレ', tag: '本日中' },
-  { id: 4, title: '週3回筋トレ', tag: '本日中' },
-  { id: 5, title: '週3回筋トレ', tag: '本日中' },
-  { id: 6, title: '週3回筋トレ', tag: '本日中' },
+const tasks: {
+  id: number;
+  title: string;
+  tag: {
+    label: string;
+    value:
+      | 'default'
+      | 'primary'
+      | 'secondary'
+      | 'error'
+      | 'info'
+      | 'success'
+      | 'default'
+      | 'warning';
+  };
+}[] = [
+  { id: 1, title: '週3回筋トレ', tag: { label: '本日中', value: 'default' } },
+  { id: 2, title: '週3回筋トレ', tag: { label: '1日遅れ', value: 'error' } },
+  {
+    id: 4,
+    title: '週3回筋トレ',
+    tag: { label: '本日中｜追跡中', value: 'info' },
+  },
+  { id: 5, title: '週3回筋トレ', tag: { label: 'クリア', value: 'primary' } },
+  { id: 6, title: '週3回筋トレ', tag: { label: '本日中', value: 'default' } },
 ];
 
 export const Home0List = () => (
-  <Box p={2}>
-    リスト画面
-    <Stack spacing={2}>
-      {tasks.map((task) => (
-        <Box
-          border={(theme) => `1px solid ${theme.palette.divider}`}
-          key={task.id}
-        >
-          <Typography variant="h6" fontWeight="bold">
-            {task.title}
+  <>
+    <Box p={1} sx={{ bgcolor: 'primary.main' }} display="flex">
+      {/* 1280/381 */}
+      <Image alt="画像" src="/images/routify.svg" width={30} height={30} />
+      <Image
+        alt="画像"
+        src="/images/routify_text.png"
+        width={100}
+        height={30}
+      />
+    </Box>
+    <Box p={2}>
+      <Box>
+        ここにさらに自分の成果をアピールできる見出し、図などを挿入したい気持ち
+      </Box>
+      <Box display="flex" alignItems="center">
+        <Image alt="画像" src="/images/routify.svg" width={50} height={50} />
+        <Paper component={Box} ml={2} p={1}>
+          <Typography>
+            未確定の習慣があります。予定を決めておくと習慣化の確率が上昇します。
           </Typography>
-          <Chip label={task.tag} />
-        </Box>
-      ))}
-    </Stack>
-  </Box>
+        </Paper>
+      </Box>
+      <Box py={4}>
+        <TextField variant="outlined" placeholder="検索" fullWidth />
+      </Box>
+      <Stack spacing={1}>
+        {tasks.map((task) => (
+          <Box
+            p={1}
+            border={(theme) => `1px solid ${theme.palette.divider}`}
+            key={task.id}
+          >
+            <Box position="relative">
+              <Typography
+                fontWeight="bold"
+                component={Link}
+                href="/"
+                width="100%"
+                color="text.primary"
+                sx={{ textDecoration: 'none' }}
+              >
+                {task.title}
+              </Typography>
+              <Chip
+                label={task.tag.label}
+                size="small"
+                color={task.tag.value}
+                sx={{ position: 'absolute', top: 0, right: 0 }}
+              />
+            </Box>
+            <Box py={1} display="flex" alignItems="center">
+              <Button variant="contained" size="small" sx={{ flex: 1 }}>
+                やった！
+              </Button>
+              <Box display="flex" alignItems="center" px={2}>
+                <DragIndicatorIcon sx={{ color: 'divider' }} />
+              </Box>
+            </Box>
+          </Box>
+        ))}
+      </Stack>
+    </Box>
+  </>
 );
