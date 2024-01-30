@@ -1,0 +1,41 @@
+@startuml habista
+entity "User" as User {
+  + id: int
+  + name: varchar
+  + email: varchar
+}
+
+entity "Habit" as Habit {
+  + id: int
+  + user_id: int
+  + name: varchar
+  + description: text
+}
+
+entity "Progress" as Progress {
+  + id: int
+  + habit_id: int
+  + date: date
+  + status: varchar
+}
+
+entity "Reminder" as Reminder {
+  + id: int
+  + habit_id: int
+  + reminder_time: time
+}
+
+entity "Schedule" as Schedule {
+  + id: int
+  + user_id: int
+  + date: date
+  + time: time
+  + description: text
+}
+
+User ||--o{ Habit : "has"
+Habit ||--o{ Progress : "tracks"
+Habit ||--o{ Reminder : "alerts"
+User ||--o{ Schedule : "plans"
+
+@enduml
