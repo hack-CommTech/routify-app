@@ -40,7 +40,7 @@ const tasks: {
 
 export const Home0List = () => (
   <>
-    <Box p={1} sx={{ bgcolor: 'primary.main' }}>
+    <Box p={1} sx={{ bgcolor: 'primary.main' }} display="flex">
       {/* 1280/381 */}
       <Image alt="画像" src="/images/routify.svg" width={30} height={30} />
       <Image
