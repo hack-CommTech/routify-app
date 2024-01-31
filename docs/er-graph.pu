@@ -1,0 +1,67 @@
+@startuml habista
+
+' ユーザテーブル
+entity "User" as User {
+  + id: int
+  + name: varchar
+  + email: varchar
+  + password: varchar
+}
+
+' 習慣テーブル
+entity "Habit" as Habit {
+  + id: int
+  + user_id: int
+  ' 習慣名
+  + name: varchar
+  ' きっかけ・なりたい姿
+  + description: text
+  ' 選択肢："button_click"|"place"|"app_launching"|"api"|"take_picture"
+  + clear_judge: varchar 
+  ' 経過時間の必須
+  + is_require_elapsedtime: boolean
+  ' 祝日を含む
+  + is_include_holiday: boolean
+  ' 実施日程
+  + schedule_routine: json
+}
+
+' ' 進捗テーブル
+' 進捗はScheduleにすべて置き換えるか、Habitから自動生成する形にするかで置き換え予定
+' entity "Progress" as Progress {
+'   + id: int
+'   + habit_id: int
+'   + date: date
+'   + status: varchar
+' }
+
+' ' リマインダーテーブル
+' スケジュールで完結させるため一旦コメントアウト
+' entity "Reminder" as Reminder {
+'   + id: int
+'   + habit_id: int
+'   + reminder_time: time
+' }
+
+' スケジュール?
+entity "Schedule" as Schedule {
+  + id: int
+  + user_id: int
+  ' 開始時間
+  + start_time: datetime
+  ' 終了時間（経過時間の必須が含まれない場合null）
+  + end_time: datetime
+  ' スケジュールのメモ？
+  + description: text
+  ' 
+  + habit_id: int
+  ' 実施済みか
+  + is_done: boolean
+}
+
+User ||--o{ Habit : "has"
+' Habit ||--o{ Progress : "tracks"
+' Habit ||--o{ Reminder : "alerts"
+Habit ||--o{ Schedule : "plans"
+
+@enduml
