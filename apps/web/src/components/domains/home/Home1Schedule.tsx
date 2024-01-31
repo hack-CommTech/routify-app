@@ -1,19 +1,10 @@
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import { Box, Chip, Stack, Typography } from '@mui/material';
-import Image from 'next/image';
+import { HomeTopHeader } from '@/components/commons/dataDisplay/HomeTopHeader';
 
 export const Home1Schedule = () => (
   <>
-    <Box p={1} sx={{ bgcolor: 'primary.main' }} display="flex">
-      {/* 1280/381 */}
-      <Image alt="画像" src="/images/routify.svg" width={30} height={30} />
-      <Image
-        alt="画像"
-        src="/images/routify_text.png"
-        width={100}
-        height={30}
-      />
-    </Box>
+    <HomeTopHeader />
     <Box p={2}>
       <Box p={1} border={(theme) => `1px solid ${theme.palette.divider}`}>
         <Typography variant="h5" component="h2" fontWeight="bold">
