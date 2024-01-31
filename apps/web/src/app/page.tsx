@@ -1,10 +1,40 @@
-import Link from 'next/link';
+import {
+  Box,
+  Chip,
+  List,
+  ListItem,
+  ListItemButton,
+  Typography,
+} from '@mui/material';
 
+/**
+ * 開発に便利な画面リンクリスト
+ */
+const links: { name: string; path: string }[] = [
+  { name: 'リスト画面', path: '/list' },
+  { name: 'スケジュール画面', path: '/schedule' },
+  { name: '習慣追加画面', path: '/list/new' },
+];
+
+/**
+ * 開発に便利な画面リンク
+ */
 const Home = () => (
-  <>
-    <Link href="/list">リスト画面</Link>
-    <Link href="/schedule">スケジュール画面</Link>
-  </>
+  <Box p={2}>
+    <Typography variant="h5" fontWeight="bold">
+      画面リスト
+    </Typography>
+    <List>
+      {links.map((link) => (
+        <ListItem key={link.path} disablePadding>
+          <ListItemButton href={link.path}>
+            {link.name}
+            <Chip label={link.path} />
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </List>
+  </Box>
 );
 
 export default Home;
