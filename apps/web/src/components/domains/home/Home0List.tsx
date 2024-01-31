@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import { HomeTopHeader } from '@/components/commons/dataDisplay/HomeTopHeader';
 
 const tasks: {
   id: number;
@@ -40,16 +41,7 @@ const tasks: {
 
 export const Home0List = () => (
   <>
-    <Box p={1} sx={{ bgcolor: 'primary.main' }} display="flex">
-      {/* 1280/381 */}
-      <Image alt="画像" src="/images/routify.svg" width={30} height={30} />
-      <Image
-        alt="画像"
-        src="/images/routify_text.png"
-        width={100}
-        height={30}
-      />
-    </Box>
+    <HomeTopHeader />
     <Box p={2}>
       <Box>
         ここにさらに自分の成果をアピールできる見出し、図などを挿入したい気持ち
