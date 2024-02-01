@@ -17,6 +17,7 @@ interface FormSelectProps {
   value: string;
   options: { label: string; value: string }[];
   setValue: (str: string) => void;
+  bottomLabel?: string;
 }
 
 export const FormSelect: React.FC<FormSelectProps> = (props) => {
@@ -24,7 +25,7 @@ export const FormSelect: React.FC<FormSelectProps> = (props) => {
     props.setValue(e.target.value);
   };
   return (
-    <Box py={4}>
+    <Box py={1}>
       {props.label && (
         <Typography fontWeight="bold" pb={1}>
           {props.label}
@@ -48,6 +49,13 @@ export const FormSelect: React.FC<FormSelectProps> = (props) => {
           </MenuItem>
         ))}
       </Select>
+      {props.bottomLabel && (
+        <Box p={1}>
+          <Typography variant="body2" color="text.secondary">
+            {props.bottomLabel}
+          </Typography>
+        </Box>
+      )}
     </Box>
   );
 };

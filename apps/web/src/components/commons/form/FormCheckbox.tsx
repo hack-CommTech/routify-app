@@ -19,7 +19,6 @@ const height = 45;
  * [参考](https://mui.com/material-ui/react-switch/)
  */
 const IOSSwitch = styled((props: SwitchProps) => (
-   
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
   width: width,
@@ -69,7 +68,7 @@ const IOSSwitch = styled((props: SwitchProps) => (
 
 export const FormCheckbox: React.FC<FormCheckboxProps> = (props) => (
   <Box py={1} display="flex" alignItems="center">
-    <Box>
+    <Box flex={1}>
       {props.label && <Typography fontWeight="bold">{props.label}</Typography>}
       {props.subLabel && (
         <Typography variant="body2">{props.subLabel}</Typography>
