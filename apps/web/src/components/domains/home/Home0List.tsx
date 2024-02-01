@@ -1,16 +1,9 @@
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
-import {
-  Box,
-  Button,
-  Chip,
-  Paper,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material';
-import Image from 'next/image';
+import { Box, Button, Chip, Stack, TextField, Typography } from '@mui/material';
 import Link from 'next/link';
 import { HomeTopHeader } from '@/components/commons/dataDisplay/HomeTopHeader';
+import { HabitListSuggestUser } from '@/components/domains/HabitListSuggestUser';
+import { MessageCharacter } from '@/components/domains/MesageCharacter';
 
 const tasks: {
   id: number;
@@ -46,14 +39,9 @@ export const Home0List = () => (
       <Box>
         ここにさらに自分の成果をアピールできる見出し、図などを挿入したい気持ち
       </Box>
-      <Box display="flex" alignItems="center">
-        <Image alt="画像" src="/images/routify.svg" width={50} height={50} />
-        <Paper component={Box} ml={2} p={1}>
-          <Typography>
-            未確定の習慣があります。予定を決めておくと習慣化の確率が上昇します。
-          </Typography>
-        </Paper>
-      </Box>
+      <MessageCharacter>
+        未確定の習慣があります。予定を決めておくと習慣化の確率が上昇します。
+      </MessageCharacter>
       <Box py={4}>
         <TextField variant="outlined" placeholder="検索" fullWidth />
       </Box>
@@ -68,7 +56,7 @@ export const Home0List = () => (
               <Typography
                 fontWeight="bold"
                 component={Link}
-                href="/"
+                href="/list/detail/hogehoge"
                 width="100%"
                 color="text.primary"
                 sx={{ textDecoration: 'none' }}
@@ -93,6 +81,7 @@ export const Home0List = () => (
           </Box>
         ))}
       </Stack>
+      <HabitListSuggestUser />
     </Box>
   </>
 );
