@@ -1,3 +1,23 @@
+## デバッグを開始したい場合
+
+- ディレクトリを移動させる
+
+```bash
+cd apps/web
+```
+
+- パッケージをインストール
+
+```bash
+$ yarn
+```
+
+- Webホストを起動
+
+```bash
+$ yarn dev
+```
+
 ### 共通して
 
 - コンポーネントは`export default`をせず、`export const`で表現する
