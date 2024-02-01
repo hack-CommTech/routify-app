@@ -14,6 +14,8 @@ const links: { name: string; path: string }[] = [
   { name: 'リスト画面', path: '/list' },
   { name: 'スケジュール画面', path: '/schedule' },
   { name: '習慣追加画面', path: '/list/new' },
+  { name: '習慣の詳細画面', path: '/list/detail/hogehoge' },
+  { name: '集中画面', path: '/focus' },
 ];
 
 /**
