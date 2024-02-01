@@ -8,11 +8,12 @@ interface FormTextFieldProps {
   placeholder?: string;
   sx?: SxProps<Theme>;
   value: string;
+  type?: string;
   setValue: (str: string) => void;
 }
 
 export const FormTextField: React.FC<FormTextFieldProps> = (props) => (
-  <Box py={4}>
+  <Box py={1}>
     {props.label && (
       <Typography fontWeight="bold" pb={1}>
         {props.label}
@@ -20,7 +21,9 @@ export const FormTextField: React.FC<FormTextFieldProps> = (props) => (
     )}
     <TextField
       variant="outlined"
+      multiline={props.type === 'textarea'}
       placeholder={props.placeholder}
+      type={props.type}
       sx={{
         ...props.sx,
         '& fieldset': {
