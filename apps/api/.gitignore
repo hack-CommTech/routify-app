@@ -1,0 +1,11 @@
+#Django
+*.log
+*.pyc
+__pycache__/
+db-volumes/
+db.sqlite3
+
+
+
+#仮想環境
+venv
