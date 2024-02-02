@@ -36,7 +36,7 @@ export const Home0List = () => (
   <>
     <HomeTopHeader />
     <Box p={2}>
-      <Box>
+      <Box p={2}>
         ここにさらに自分の成果をアピールできる見出し、図などを挿入したい気持ち
       </Box>
       <MessageCharacter>
@@ -81,6 +81,8 @@ export const Home0List = () => (
           </Box>
         ))}
       </Stack>
+
+      {/* 同じ習慣をするユーザかも？ */}
       <HabitListSuggestUser />
     </Box>
   </>
