@@ -7,6 +7,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+    volumes:
+      - ./api:/app
     depends_on:
       - web
 
@@ -16,3 +18,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - ./web:/app # ホストとコンテナ間のファイル同期
