@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'routifyapiapp',
     'list',
+    'common',
     'rest_framework',
 ]
 
