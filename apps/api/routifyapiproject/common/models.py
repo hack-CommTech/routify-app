@@ -17,9 +17,11 @@ class User(models.Model):
 class Habit(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     habit_name = models.CharField(max_length=256)
-    start_time = models.DateTimeField()
-    end_time = models.DateTimeField()
-    is_done = models.BooleanField()
+    description = models.TextField(default='習慣に関する説明が入ります')
+    clear_judge = models.CharField(max_length=256, default='None')
+    is_require_elapsedtime = models.BooleanField(default=False)
+    is_include_holiday = models.BooleanField(default=False)
+    schedule_routine = models.JSONField(default={})
 
     def __str__(self):
         return self.habit_name
