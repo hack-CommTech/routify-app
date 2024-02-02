@@ -23,6 +23,16 @@ import {
 
 export const ListNewPage = () => {
   const router = useRouter();
+  // const formData = React.useState({
+  //   /**
+  //    * 習慣名
+  //    */
+  //   name: '',
+  //   /**
+  //    * クリア判定
+  //    */
+  //   clear_method: '',
+  // });
   const [value, setValue] = React.useState<string>('');
   const [value2, setValue2] = React.useState<string>('');
   const [value3, setValue3] = React.useState<string>('');
