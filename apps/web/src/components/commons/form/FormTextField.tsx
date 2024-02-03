@@ -9,7 +9,9 @@ interface FormTextFieldProps {
   sx?: SxProps<Theme>;
   value: string;
   type?: string;
-  setValue: (str: string) => void;
+  setValue: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
 export const FormTextField: React.FC<FormTextFieldProps> = (props) => (
@@ -21,6 +23,7 @@ export const FormTextField: React.FC<FormTextFieldProps> = (props) => (
     )}
     <TextField
       variant="outlined"
+      name={props.name}
       multiline={props.type === 'textarea'}
       placeholder={props.placeholder}
       type={props.type}
@@ -32,7 +35,7 @@ export const FormTextField: React.FC<FormTextFieldProps> = (props) => (
         },
       }}
       value={props.value}
-      onChange={(e) => props.setValue(e.target.value)}
+      onChange={props.setValue}
       fullWidth
     />
   </Box>
