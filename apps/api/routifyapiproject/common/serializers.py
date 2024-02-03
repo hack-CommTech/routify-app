@@ -16,7 +16,7 @@ class HabitSerializer(serializers.ModelSerializer):
         read_only_fields = ('id')
 
 
-class ScheduleSerializer(serializers.Model.Serializer):
+class ScheduleSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Schedule
         fields = {'id', 'start_time', 'end_time', 'description', 'is_done', 'habit'}
