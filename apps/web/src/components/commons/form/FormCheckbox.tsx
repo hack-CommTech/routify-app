@@ -8,7 +8,10 @@ interface FormCheckboxProps {
   sx?: string;
   disabled?: boolean;
   checked: boolean;
-  setChecked: (bool: boolean) => void;
+  setChecked: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    checked: boolean
+  ) => void;
 }
 
 const width = 75;
@@ -75,8 +78,9 @@ export const FormCheckbox: React.FC<FormCheckboxProps> = (props) => (
       )}
     </Box>
     <IOSSwitch
+      name={props.name}
       checked={props.checked}
-      onChange={(e) => props.setChecked(e.target.checked)}
+      onChange={props.setChecked}
     />
   </Box>
 );
