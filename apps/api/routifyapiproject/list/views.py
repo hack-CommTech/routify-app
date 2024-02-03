@@ -8,3 +8,4 @@ from common.serializers import HabitSerializer
 class HabitList(generics.ListAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
+
