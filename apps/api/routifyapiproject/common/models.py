@@ -37,8 +37,8 @@ class Schedule(models.Model):
     is_done = models.BooleanField()
     habit = models.ForeignKey(Habit, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.start_time, self.end_time
+    # def __str__(self):
+    #     return self.start_time, self.end_time
 
     class Meta:
         db_table = 'schedule_table'
