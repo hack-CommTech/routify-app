@@ -16,7 +16,7 @@ Including another URLconf
 """
 
 from django.urls import path
-from common.models import HabitList
+from list.views import HabitList
 
 urlpatterns = [
     path('', HabitList.as_view(), name='HabitList')
