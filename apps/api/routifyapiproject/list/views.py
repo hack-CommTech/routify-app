@@ -6,5 +6,5 @@ from common.serializers import HabitSerializer
 
 # Create your views here.
 class HabitList(generics.ListAPIView):
-    queryset = Habit.objects.all
+    queryset = Habit.objects.all()
     serializer_class = HabitSerializer
