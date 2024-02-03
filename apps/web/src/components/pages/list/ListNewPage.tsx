@@ -32,7 +32,7 @@ export const ListNewPage = () => {
     /**
      * クリア判定
      */
-    clear_method: '',
+    clear_judge: '',
     /**
      * 経過時間の必須
      */
@@ -49,10 +49,6 @@ export const ListNewPage = () => {
      * 実施日程
      */
     play_schedule: '',
-    /**
-     * 実施日程詳細
-     */
-    play_schedule_option: '',
     week_routine: '',
     /**
      * 1週間に1回的に
@@ -111,13 +107,13 @@ export const ListNewPage = () => {
         />
         <FormSelect
           label="クリア判定"
-          name="clear_method"
+          name="clear_judge"
           options={clearMethodOption}
-          value={formData.clear_method}
+          value={formData.clear_judge}
           setValue={setHandler}
           bottomLabel={
             clearMethodOption.find(
-              (option) => option.value === formData.clear_method
+              (option) => option.value === formData.clear_judge
             )?.description
           }
         />

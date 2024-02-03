@@ -43,6 +43,7 @@ export const playScheduleProtocolOptions = [
   { value: 'every_routine', label: '日数置き' },
   { value: 'week_routine', label: '週単位' },
   { value: 'some_routine', label: '特定の日' },
+  { value: 'every_day', label: '毎日' },
 ];
 
 /**
