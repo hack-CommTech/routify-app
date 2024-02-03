@@ -5,7 +5,6 @@ import React from 'react';
  * schedule画面で使用
  */
 export const useSchedule = () => {
-  // eslint-disable-next-line
   const [habitSettledSchedule, setHabitSettledSchedule] = React.useState<
     {
       list_id: number;
@@ -19,28 +18,8 @@ export const useSchedule = () => {
         color: ChipOwnProps['color'];
       };
     }[]
-  >([
-    {
-      list_id: 1,
-      habit_id: 1,
-      name: '週3筋トレ',
-      start_time: '2024-02-02T20:52:26.395Z',
-      end_time: null,
-      is_done: false,
-      chip: { label: '本日中', color: 'default' },
-    },
-    {
-      list_id: 2,
-      habit_id: 2,
-      name: 'テスト勉強',
-      start_time: '2024-02-02T20:30:00.000Z',
-      end_time: null,
-      is_done: false,
-      chip: { label: '1日遅れ', color: 'error' },
-    },
-  ]);
+  >([]);
 
-  // eslint-disable-next-line
   const [habitConfirmedSchedule, setHabitConfirmedSchedule] = React.useState<
     {
       list_id: number;
@@ -55,27 +34,51 @@ export const useSchedule = () => {
       };
       is_suggest?: boolean;
     }[]
-  >([
-    {
-      list_id: 3,
-      habit_id: 1,
-      name: '早起き',
-      start_time: '2024-02-02T20:30:00.000Z',
-      end_time: null,
-      is_done: false,
-      chip: { label: 'クリア', color: 'success' },
-    },
-    {
-      list_id: 2,
-      habit_id: 2,
-      name: 'カフェで朝活',
-      start_time: '2024-02-02T21:40:00.000Z',
-      end_time: '2024-02-02T22:10:00.000Z',
-      is_done: false,
-      chip: { label: '本日中｜追跡中', color: 'info' },
-      is_suggest: true,
-    },
-  ]);
+  >([]);
+
+  React.useEffect(() => {
+    setHabitSettledSchedule([
+      {
+        list_id: 1,
+        habit_id: 1,
+        name: '週3筋トレ',
+        start_time: '2024-02-02T20:52:26.395Z',
+        end_time: null,
+        is_done: false,
+        chip: { label: '本日中', color: 'default' },
+      },
+      {
+        list_id: 2,
+        habit_id: 2,
+        name: 'テスト勉強',
+        start_time: '2024-02-02T20:30:00.000Z',
+        end_time: null,
+        is_done: false,
+        chip: { label: '1日遅れ', color: 'error' },
+      },
+    ]);
+    setHabitConfirmedSchedule([
+      {
+        list_id: 3,
+        habit_id: 1,
+        name: '早起き',
+        start_time: '2024-02-02T20:30:00.000Z',
+        end_time: null,
+        is_done: false,
+        chip: { label: 'クリア', color: 'success' },
+      },
+      {
+        list_id: 2,
+        habit_id: 2,
+        name: 'カフェで朝活',
+        start_time: '2024-02-02T21:40:00.000Z',
+        end_time: '2024-02-02T22:10:00.000Z',
+        is_done: false,
+        chip: { label: '本日中｜追跡中', color: 'info' },
+        is_suggest: true,
+      },
+    ]);
+  }, []);
 
   return {
     /**

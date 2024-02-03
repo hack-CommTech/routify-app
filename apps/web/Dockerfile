@@ -7,6 +7,8 @@ COPY . /app
 # 環境構築
 RUN yarn
 
+RUN cp .env.sample .env
+
 EXPOSE 3000
 
-CMD ["yarn", "dev"] 
+CMD ["yarn", "dev"]

@@ -12,6 +12,12 @@ cd apps/web
 $ yarn
 ```
 
+- 環境変数のコピー
+
+```bash
+$ cp .env.sample .env
+```
+
 - Webホストを起動
 
 ```bash
